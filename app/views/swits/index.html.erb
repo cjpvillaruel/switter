@@ -1,0 +1,21 @@
+<h1>Swits</h1>
+
+
+<%= render 'form' %>
+ <% @swits.each do |swit| %>
+<div class="panel callout radius">
+<%= swit.post %>
+
+
+
+ <%= link_to edit_swit_path(swit) do %>
+  <i class="fi-pencil"></i> 
+<% end %>
+
+ <%= link_to 'delete', swit, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+</div>
+<% end %>
+<br>
+
+<%= link_to 'New Swit', new_swit_path %>
