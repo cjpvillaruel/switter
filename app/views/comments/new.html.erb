@@ -1,7 +1,23 @@
+<div class="panel callout radius">
 <h5><%= @swit.user_id %></h5>
 <h2><%= @swit.post %></h2>
 
 
+</div>
+
+  <% @comments.each do |comment| %>
+
+ <% if comment.user_id != nil%>
+      <div class="panel callout radius">
+       <b> <%= comment.user_id %></b>
+        <br>
+        <h3><%= comment.body %></h3>
+        
+      </div>
+    
+    <% end %>
+
+   <% end %>
 
 
 <%= render 'form' %>

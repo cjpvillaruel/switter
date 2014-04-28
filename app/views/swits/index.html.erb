@@ -17,7 +17,7 @@
 <% end %>
 
 
-<%= link_to swit.comments.count.to_s+'Comments', new_swit_comment_path(swit)  %>
+<%= link_to pluralize(swit.comments.count.to_s, "Comment"), new_swit_comment_path(swit)  %>
 
 
  <%= link_to 'delete', swit, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -25,5 +25,7 @@
 </div>
 <% end %>
 <br>
+
+
 
 <%= link_to 'New Swit', new_swit_path %>

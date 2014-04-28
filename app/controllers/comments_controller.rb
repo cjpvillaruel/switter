@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
 	      if @comment.save
 	        
 
-	        format.html { redirect_to [@swit, @comment], notice: 'Comment was successfully created.' }
+	        format.html { render action: 'new' }
 	        format.json { render action: 'show', status: :created, location: @comment }
 	      else
 	        format.html { render action: 'new' }
