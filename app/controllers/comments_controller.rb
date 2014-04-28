@@ -36,14 +36,13 @@ class CommentsController < ApplicationController
 	def create
 	  
 	@comment = @swit.comments.new(comments_params)
-
+	@swits = Swit.all
 	@comment.user_id= current_user.username
 	    respond_to do |format|
 	      if @comment.save
-	        
-
-	        format.html { render action: 'new' }
-	        format.json { render action: 'show', status: :created, location: @comment }
+	      	
+	        format.html { redirect_to new_swit_comment_path(), notice: 'Comment was successfully created.' }
+	        format.json { render action: 'new', status: :created, location: @comment }
 	      else
 	        format.html { render action: 'new' }
 	        format.json { render json: @swit.errors, status: :unprocessable_entity }

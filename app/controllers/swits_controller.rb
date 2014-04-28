@@ -7,9 +7,9 @@ class SwitsController < ApplicationController
   # GET /swits
   # GET /swits.json
   def index
-    @swits = Swit.all
+    @swits = Swit.order(created_at: :desc)
     @swit = Swit.new
-    
+
   end
 
   # GET /swits/1
@@ -33,7 +33,7 @@ class SwitsController < ApplicationController
     @swit.user_id= current_user.username
     respond_to do |format|
       if @swit.save
-        format.html { redirect_to @swit, notice: 'Swit was successfully created.' }
+        format.html { redirect_to swits_path, notice: 'Swit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @swit }
       else
         format.html { render action: 'new' }

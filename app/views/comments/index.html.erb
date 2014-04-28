@@ -13,10 +13,10 @@
        <b> <%= comment.user_id %></b>
         <br>
         <h3><%= comment.body %></h3>
-        
-      </div>
-      <%= link_to 'Delete comment', [@swit, comment], confirm: 'Are you sure?', method: :delete %>
+          <%= link_to 'Delete comment', [@swit, comment], confirm: 'Are you sure?', method: :delete %>
 
+      </div>
+    
     <% end %>
 
 

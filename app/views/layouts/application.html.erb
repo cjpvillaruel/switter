@@ -16,9 +16,12 @@
   <ul class="title-area">
     
     <li class="name">
-      <h1><a href="#"><b>Switter</b></a></h1>
+      <h1> <%= link_to swits_path do %>
+ <b>Switter</b>
+<% end %></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+
   </ul>
 
   <section class="top-bar-section">
@@ -39,8 +42,8 @@
 
 <div id="header"></div>
 <div class="row">
-  <div class="small-6 large-3 columns"></div>
-  <div class="small-6 large-12 columns"  id="main">
+  <div class="small-12 large-3 columns"></div>
+  <div class="small-12 large-12 columns"  id="main">
     <%= yield %>
     <%= javascript_include_tag "application" %>
     <p class="notice"><%= notice %></p>
