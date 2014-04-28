@@ -1,31 +1,24 @@
-<h1>Listing comments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>User</th>
-      <th>Swit</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h5><%= @swit.user_id %></h5>
+<h2><%= @swit.post %></h2>
 
-  <tbody>
+
+
+
+
+
     <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.body %></td>
-        <td><%= comment.user_id %></td>
-        <td><%= comment.swit_id %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="panel callout radius">
+       <b> <%= comment.user_id %></b>
+        <br>
+        <h3><%= comment.body %></h3>
+        
+      </div>
+      <%= link_to 'Delete comment', [@swit, comment], confirm: 'Are you sure?', method: :delete %>
 
+    <% end %>
+ 
+<%= link_to 'Back', swits_path %>
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+

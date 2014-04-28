@@ -8,7 +8,8 @@ class SwitsController < ApplicationController
   # GET /swits.json
   def index
     @swits = Swit.all
-     @swit = Swit.new
+    @swit = Swit.new
+    
   end
 
   # GET /swits/1

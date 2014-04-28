@@ -1,4 +1,4 @@
-<%= form_for(@comment) do |f| %>
+<%= form_for([@swit, @comment]) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -12,17 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :body %><br>
+    
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :swit_id %><br>
-    <%= f.number_field :swit_id %>
-  </div>
+ 
+
+   <input id="comment_swit_id" name="comment[swit_id]" type="hidden" value="<%= @swit.id%>" />
   <div class="actions">
     <%= f.submit %>
   </div>
