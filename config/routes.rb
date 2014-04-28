@@ -1,4 +1,6 @@
 Switter2::Application.routes.draw do
+  resources :comments
+
   resources :swits
 
   devise_for :users

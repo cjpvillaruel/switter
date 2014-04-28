@@ -2,6 +2,8 @@ class SwitsController < ApplicationController
   before_action :set_swit, only: [:show, :edit, :update, :destroy]
 
   before_filter :authenticate_user!
+
+  
   # GET /swits
   # GET /swits.json
   def index
@@ -27,7 +29,7 @@ class SwitsController < ApplicationController
   # POST /swits.json
   def create
     @swit = Swit.new(swit_params)
-
+    @swit.user_id= current_user.username
     respond_to do |format|
       if @swit.save
         format.html { redirect_to @swit, notice: 'Swit was successfully created.' }
