@@ -17,6 +17,7 @@
 <% end %>
 <% end %>
 
+<%#=============================== sweet form==========================================================%>
 
  <% @sweet= Sweet.new%>
 
@@ -43,7 +44,37 @@
 
 <%= link_to pluralize(swit.sweets.count.to_s, "Sweet"), swit_sweets_path(swit)  %>
 
+<%#=============================== sweet form==========================================================%>
 
+
+<%#=============================== sour form==========================================================%>
+
+ <% @sour= Sour.new%>
+
+<%= form_for([swit, @sour], :html => {:class => 'sour_form'}) do |f| %>
+  <% if @sour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sour.errors.count, "error") %> prohibited this sour from being saved:</h2>
+
+      <ul>
+      <% @sour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <input id="sour_swit_id" name="sour[swit_id]" type="hidden" value="<%= @swit.id%>" />
+ 
+ 
+   
+     <input name="commit" type="submit" class= "sour"value="" />
+
+<% end %>
+
+<%= link_to pluralize(swit.sours.count.to_s, "sour"), swit_sours_path(swit)  %>
+
+<%#=============================== sweet form==========================================================%>
 
 <%= link_to pluralize(swit.comments.count.to_s, "Comment"), new_swit_comment_path(swit)  %>
 
@@ -56,7 +87,7 @@
 
 
 
-<%= render swit.comments %>	
+<%= render swit.comments %> 
 <% @comment= Comment.new%>
 <%= form_for([swit, @comment]) do |f| %>
   <% if @comment.errors.any? %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sour.user_id %>
+</p>
+
+<p>
+  <strong>Swit:</strong>
+  <%= @sour.swit_id %>
+</p>
+
+<%= link_to 'Edit', edit_swit_sour_path(@swit, @sour) %> |
+<%= link_to 'Back', swit_sours_path(@swit) %>
