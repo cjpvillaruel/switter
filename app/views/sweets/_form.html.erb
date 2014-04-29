@@ -1,0 +1,19 @@
+<%= form_for([@swit, @sweet]) do |f| %>
+  <% if @sweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sweet.errors.count, "error") %> prohibited this sweet from being saved:</h2>
+
+      <ul>
+      <% @sweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <input id="sweet_swit_id" name="sweet[swit_id]" type="hidden" value="<%= @swit.id%>" />
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

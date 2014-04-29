@@ -28,3 +28,25 @@
 
 	background: white;
 }
+
+.sweet { 
+    background-image: image-url('glyphicons_012_heart.png');
+    display:inline;
+    background-repeat:no-repeat;
+    width: 17px;
+    height: 16px;
+    border: 0px;
+    background-size:16px;
+    background-color:transparent;
+    cursor: pointer;
+    outline: 0;
+}
+.sweet:hover{ 
+     width: 20px;
+    height: 20px;
+     background-size:20px;
+}
+.sweet_form{
+	
+	display:inline;
+}

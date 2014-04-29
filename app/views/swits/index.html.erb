@@ -18,8 +18,30 @@
 <% end %>
 
 
- <a><i class="fi-heart"></i></a> 
+ <% @sweet= Sweet.new%>
 
+<%= form_for([swit, @sweet], :html => {:class => 'sweet_form'}) do |f| %>
+  <% if @sweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sweet.errors.count, "error") %> prohibited this sweet from being saved:</h2>
+
+      <ul>
+      <% @sweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <input id="sweet_swit_id" name="sweet[swit_id]" type="hidden" value="<%= @swit.id%>" />
+ 
+ 
+   
+     <input name="commit" type="submit" class= "sweet"value="" />
+
+<% end %>
+
+<%= link_to pluralize(swit.sweets.count.to_s, "Sweet"), swit_sweets_path(swit)  %>
 
 
 
@@ -31,6 +53,9 @@
 <% end %>
 
 <br>
+
+
+
 <%= render swit.comments %>	
 <% @comment= Comment.new%>
 <%= form_for([swit, @comment]) do |f| %>
@@ -47,17 +72,22 @@
   <% end %>
 
 
-
+<%# =========================comment form======================================================%>
   <div class="field">
     
     <%= f.text_area :body %>
+
+
+   <input id="comment_swit_id" name="comment[swit_id]" type="hidden" value="<%= @swit.id%>" />
   </div>
  
 
-   <input id="comment_swit_id" name="comment[swit_id]" type="hidden" value="<%= @swit.id%>" />
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  <%# =========================comment form======================================================%>
 <% end %>
 
 

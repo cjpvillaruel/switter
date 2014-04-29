@@ -1,0 +1,27 @@
+<h1>Listing sweets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Swit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sweets.each do |sweet| %>
+      <tr>
+        <td><%= sweet.user_id %></td>
+        <td><%= sweet.swit_id %></td>
+        
+        <td> <%= link_to 'Delete sweet', [@swit, sweet], confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

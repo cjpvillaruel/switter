@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sweet.user_id %>
+</p>
+
+<p>
+  <strong>Swit:</strong>
+  <%= @sweet.swit_id %>
+</p>
+
+<%= link_to 'Edit', edit_swit_sweet_path(@swit, @sweet) %> |
+<%= link_to 'Back', swit_sweets_path(@swit) %>
