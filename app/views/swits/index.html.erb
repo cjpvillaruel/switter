@@ -11,16 +11,55 @@
 
 
 
-
+<% if current_user.username ==  swit.user_id  %>
  <%= link_to edit_swit_path(swit) do %>
   <i class="fi-pencil"></i> 
 <% end %>
+<% end %>
+
+
+ <a><i class="fi-heart"></i></a> 
+
+
 
 
 <%= link_to pluralize(swit.comments.count.to_s, "Comment"), new_swit_comment_path(swit)  %>
 
 
+<% if current_user.username ==  swit.user_id  %>
  <%= link_to 'delete', swit, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<br>
+<%= render swit.comments %>	
+<% @comment= Comment.new%>
+<%= form_for([swit, @comment]) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    
+    <%= f.text_area :body %>
+  </div>
+ 
+
+   <input id="comment_swit_id" name="comment[swit_id]" type="hidden" value="<%= @swit.id%>" />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 </div>
 <% end %>

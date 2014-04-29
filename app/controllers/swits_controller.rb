@@ -2,7 +2,7 @@ class SwitsController < ApplicationController
   before_action :set_swit, only: [:show, :edit, :update, :destroy]
 
   before_filter :authenticate_user!
-
+ 
   
   # GET /swits
   # GET /swits.json
