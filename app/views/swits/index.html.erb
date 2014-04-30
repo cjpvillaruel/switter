@@ -6,7 +6,29 @@
 <div class="panel callout radius">
 <b><%= swit.user_id %></b>
 
-<h4><%= swit.post %></h4>
+<h4>
+
+
+<% temp= swit.post 
+
+finalstring= ""
+first_index=0;
+while temp != ""
+open_brace= temp.index('{')
+if open_brace !=nil then 
+
+%>
+
+<%close_brace= temp.index('}')%>
+<%=temp[first_index, open_brace]%>
+
+<a><%=temp[open_brace .. close_brace]%></a>
+<% temp= temp[close_brace+1, temp.length]%>
+<%else temp=""%>
+<%end%>
+<%end%>
+
+</h4>
 
 
 
@@ -18,7 +40,7 @@
 <% end %>
 
 <%#=============================== sweet form==========================================================%>
-
+<%#%>
  <% @sweet= Sweet.new%>
 
 <%= form_for([swit, @sweet], :html => {:class => 'sweet_form'}) do |f| %>
@@ -86,7 +108,7 @@
 <br>
 
 
-
+<%= render swit.sweets %> 
 <%= render swit.comments %> 
 <% @comment= Comment.new%>
 <%= form_for([swit, @comment]) do |f| %>

@@ -21,7 +21,10 @@ class SwitsController < ApplicationController
   def new
     @swit = Swit.new
   end
+  # show swits of a user
+  def profile
 
+  end
   # GET /swits/1/edit
   def edit
   end

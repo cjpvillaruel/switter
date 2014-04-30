@@ -4,7 +4,7 @@ class SweetsController < ApplicationController
   # GET /sweets
   # GET /sweets.json
   def index
-    @sweets = Sweet.all
+      @sweets = @swit.sweets.all
   end
 
   # GET /sweets/1
