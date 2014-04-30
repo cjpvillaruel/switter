@@ -4,8 +4,9 @@ Switter2::Application.routes.draw do
 
   
 
+
 resources :swits do
-  resources :comments, :users, :sweets, :sours
+  resources :comments, :users, :sweets, :sours, :doortags
 end
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

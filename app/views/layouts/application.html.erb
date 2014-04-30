@@ -12,12 +12,14 @@
   </head>
 
   <body>
+
+  <div class="fixed">
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     
     <li class="name">
       <h1> <%= link_to swits_path do %>
- <b>Switter</b>
+ <%= image_tag "logo.png", class: "logo" %>
 <% end %></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
@@ -39,9 +41,12 @@
    
   </section>
 </nav>
+</div>
 
-<div id="header"></div>
+
+
 <div class="row">
+
   <div class="small-12 large-3 columns"></div>
   <div class="small-12 large-12 columns"  id="main">
     <%= yield %>
@@ -55,6 +60,7 @@
   </div>
   <div class="small-12 large-3 columns"></div>
 </div>
+
     
 
 <div id="footer"> 

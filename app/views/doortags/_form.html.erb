@@ -1,0 +1,26 @@
+<%= form_for(@doortag) do |f| %>
+  <% if @doortag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doortag.errors.count, "error") %> prohibited this doortag from being saved:</h2>
+
+      <ul>
+      <% @doortag.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tag %><br>
+    <%= f.text_field :tag %>
+  </div>
+
+  <div class="field">
+    <%= f.label :swit_id %><br>
+    <%= f.number_field :swit_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

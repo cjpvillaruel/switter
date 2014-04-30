@@ -16,15 +16,29 @@
 @import 'foundation-icons';
 
 #header{
-
-	height: 600px;
+    margin-top: 150px;
+	height: 450px;
 	width: 100%;
 	position: absolute;
 	background: #F20041;
+  
+
+}
+.fixed{
+    top:0px;
+    z-index:2;
+    position:fixed;
+    height:100px;
+}
+
+.logo{
+      width: 200px;
+        top:0px;
+         z-index:2;
+         position:fixed;
 }
 
 #main{
-
 
 	background: white;
 }

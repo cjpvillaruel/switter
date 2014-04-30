@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @doortag.tag %>
+</p>
+
+
+<p>
+  <strong>Swit:</strong>
+  <%= @doortag.swit_id %>
+</p>
+
+<%= link_to 'Edit', edit_doortag_path(@doortag) %> |
+<%= link_to 'Back', doortags_path %>

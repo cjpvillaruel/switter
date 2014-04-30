@@ -1,0 +1,31 @@
+<h1>Listing doortags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>String</th>
+      <th>Swit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doortags.each do |doortag| %>
+      <tr>
+        <td><%= doortag.tag %></td>
+        
+        <td><%= doortag.swit_id %></td>
+        <td><%= link_to 'Show', doortag %></td>
+        <td><%= link_to 'Edit', edit_doortag_path(doortag) %></td>
+        <td><%= link_to 'Destroy', doortag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doortag', new_doortag_path %>
