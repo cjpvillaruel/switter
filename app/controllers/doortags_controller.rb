@@ -5,11 +5,15 @@ class DoortagsController < ApplicationController
   # GET /doortags.json
   def index
     @doortags = Doortag.all
+   # @doortags = Doortag.select(:tag).distinct
   end
 
   # GET /doortags/1
   # GET /doortags/1.json
   def show
+    #@tag = Doortag.new(params(:id, :doortag))
+    #@doortags= Doortag.where(tag: params(:id))
+
   end
 
   # GET /doortags/new
@@ -17,6 +21,12 @@ class DoortagsController < ApplicationController
     @doortag = Doortag.new
   end
 
+  def showdoortags
+      @tag=params[:doortag]
+      @swits= Swit.all
+      @doortags= Doortag.where(tag: @tag)
+
+  end
   # GET /doortags/1/edit
   def edit
   end

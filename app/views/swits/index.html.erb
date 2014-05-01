@@ -20,8 +20,8 @@ if open_brace !=nil then
 
 <%close_brace= temp.index('}')%>
 <%=temp[first_index, open_brace]%>
-
-<a><%=temp[open_brace .. close_brace]%></a>
+<% tag=temp[open_brace .. close_brace]%>
+<%= link_to tag, showdoortags_doortags_path(id: 1 , doortag: tag) %>
 <% temp= temp[close_brace+1, temp.length]%>
 <%else%>
 <%= temp%>

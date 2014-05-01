@@ -1,5 +1,5 @@
 class SwitsController < ApplicationController
-  before_action :set_swit, only: [:show, :edit, :update, :destroy]
+  before_action :set_swit, only: [:show, :edit, :update, :destroy, :doortagview]
 
   before_filter :authenticate_user!
  
@@ -21,27 +21,41 @@ class SwitsController < ApplicationController
   def new
     @swit = Swit.new
   end
-  # show swits of a user
-  def profile
+  # show door tags
+  def doortagview
+    
 
   end
   # GET /swits/1/edit
   def edit
   end
 
+
+
   # POST /swits
   # POST /swits.json
   def create
     @swit = Swit.new(swit_params)
     @swit.user_id= current_user.username
-    respond_to do |format|
+
+    @post =@swit.post
+    
+
+    #render :text => @tags
+   respond_to do |format|
       if @swit.save
-        format.html { redirect_to swits_path, notice: 'Swit was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @swit }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @swit.errors, status: :unprocessable_entity }
-      end
+        @tags= @post.scan(/\{[^}]*\}/)
+
+        @tags.each do |doortag|
+            @doortag =  Doortag.new(swit_id: @swit.id, tag: doortag)
+            @doortag.save
+        end
+       format.html { redirect_to swits_path, notice: 'Swit was successfully created.' }
+       format.json { render action: 'show', status: :created, location: @swit }
+     else
+       format.html { render action: 'new' }
+       format.json { render json: @swit.errors, status: :unprocessable_entity }
+     end
     end
   end
 

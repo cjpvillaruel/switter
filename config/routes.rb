@@ -1,14 +1,19 @@
 Switter2::Application.routes.draw do
 
- 
-
+resources :doortags do
+  collection do
+    get :showdoortags
+  end
+end
   
 
 
 resources :swits do
-  resources :comments, :users, :sweets, :sours, :doortags
+  resources :comments, :users, :sweets, :sours
 end
   devise_for :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
