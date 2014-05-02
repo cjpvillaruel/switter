@@ -1,3 +1,4 @@
+<div id= "posting" >
 <%= form_for(@swit) do |f| %>
   <% if @swit.errors.any? %>
     <div id="error_explanation">
@@ -11,13 +12,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :post %><br>
-    <%= f.text_field :post %>
+  
+
+    <%= f.text_area :post , :id=> "txt" %>
 
 
-  </div>
-  <div class="actions">
+
+  <span id = "count"></span>
+ 
+
+  <div class="actions right">
     <%= f.submit 'Post', :class => "button"%>
   </div>
 <% end %>
+
+</div>

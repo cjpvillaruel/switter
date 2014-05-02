@@ -1,10 +1,27 @@
 
+<div class="small-12 large-4 columns switlist left"  id="tags"  >
+<br><h4>Trending now</h4>
 
-<%= render 'form' %>
+</div>
+<div class="small-12 large-8 columns switlist right"   >
+<%# render 'form' %>
  <% @swits.each do |swit| %>
-<div class="panel callout radius">
+<div class="panel callout radius swit">
 <b><%= swit.user_id %></b>
 
+<div class="right">
+<% if current_user.username ==  swit.user_id  %>
+ <%= link_to 'delete', swit, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+</div>
+
+<div class="right">
+  <% if current_user.username ==  swit.user_id  %>
+ <%= link_to edit_swit_path(swit) do %>
+  <i class="fi-pencil"></i> 
+<% end %>
+<% end %>
+</div>
 <h4>
 
 
@@ -33,14 +50,12 @@ if open_brace !=nil then
 
 
 
-<% if current_user.username ==  swit.user_id  %>
- <%= link_to edit_swit_path(swit) do %>
-  <i class="fi-pencil"></i> 
-<% end %>
-<% end %>
 
+<br>
 <%#=============================== sweet form==========================================================%>
 <%#%>
+
+
  <% @sweet= Sweet.new%>
 
 <%= form_for([swit, @sweet], :html => {:class => 'sweet_form'}) do |f| %>
@@ -63,6 +78,7 @@ if open_brace !=nil then
      <input name="commit" type="submit" class= "sweet"value="" />
 
 <% end %>
+
 
 <%= link_to pluralize(swit.sweets.count.to_s, "Sweet"), swit_sweets_path(swit)  %>
 
@@ -98,17 +114,18 @@ if open_brace !=nil then
 
 <%#=============================== sweet form==========================================================%>
 
-<%= link_to pluralize(swit.comments.count.to_s, "Comment"), new_swit_comment_path(swit)  %>
 
 
-<% if current_user.username ==  swit.user_id  %>
- <%= link_to 'delete', swit, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+
+
 
 <br>
 
+<%= render swit.sweets %> <hr>
 
-<%= render swit.sweets %> 
+<%#link_to pluralize(swit.comments.count.to_s, "Comment"), new_swit_comment_path(swit)  %>
+<em><%=pluralize(swit.comments.count.to_s, "Comment")%></em>
+<br/>
 <%= render swit.comments %> 
 <% @comment= Comment.new
     @swit= swit
@@ -122,5 +139,5 @@ if open_brace !=nil then
 <br>
 
 
-
+</div>
 <%= link_to 'New Swit', new_swit_path %>

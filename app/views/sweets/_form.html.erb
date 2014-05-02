@@ -1,3 +1,4 @@
+<div id="posting">
 <%= form_for([@swit, @sweet]) do |f| %>
   <% if @sweet.errors.any? %>
     <div id="error_explanation">
@@ -17,3 +18,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

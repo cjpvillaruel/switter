@@ -38,10 +38,45 @@
          position:fixed;
 }
 
-#main{
-
-	background: white;
+#posting{
+    postion:absolute;
 }
+#mainheader{
+    height:200px;
+
+}
+#tags{
+    position:fixed;
+}
+
+header{
+    background-color: beige;
+    height:200px;
+    border-bottom:solid;
+    border-width: 30px;
+}
+#head{
+    height:200px;
+}
+
+#bodytag{
+    background-color: #0089e9;
+}
+#txt{
+    max-width:533px;
+    max-height:98px;
+    min-height:65px;
+    min-width: 455px;
+}
+.switlist{
+    margin-top:100px;
+    background-color:white;
+}
+
+.swit{
+    background-color:pink;
+}
+
 
 .sweet { 
     background-image: image-url('glyphicons_012_heart.png');
@@ -63,4 +98,26 @@
 .sweet_form{
 	
 	display:inline;
+}
+
+.sour { 
+    background-image: image-url('glyphicons_012_heart.png');
+    display:inline;
+    background-repeat:no-repeat;
+    width: 17px;
+    height: 16px;
+    border: 0px;
+    background-size:16px;
+    background-color:transparent;
+    cursor: pointer;
+    outline: 0;
+}
+.sour:hover{ 
+     width: 20px;
+    height: 20px;
+     background-size:20px;
+}
+.sour_form{
+    
+    display:inline;
 }

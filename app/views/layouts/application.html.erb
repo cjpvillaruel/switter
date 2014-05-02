@@ -9,19 +9,38 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+
+
+    <script>
+      function go() {
+        var txt=document.getElementById("txt");
+        txt.onkeydown = countTxt;
+        txt.onkeyup = countTxt1;
+      }
+      function countTxt(){
+        var txt = document.getElementById("txt");
+        var count = document.getElementById("count");
+        count.innerHTML = 140-txt.value.length;
+      }
+      function countTxt1(){
+        var txt = document.getElementById("txt");
+        var count = document.getElementById("count");
+        count.innerHTML = 140-txt.value.length;
+      }
+    </script>
+   
   </head>
 
-  <body>
+  <body onload="go()" id="bodytag"> 
 
   <div class="fixed">
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     
     <li class="name">
-      <h1> <%= link_to swits_path do %>
- <%= image_tag "logo.png", class: "logo" %>
-<% end %></h1>
+      <h1> </h1>
     </li>
+
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
 
   </ul>
@@ -29,6 +48,11 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
+    <li class="has-form">
+  <div class="row collapse">
+    
+  </div>
+</li>
       <li ><a href="#"><% if user_signed_in? %>
     <%=current_user.username %><% end %></a></li>
       <li class="active">   <% if user_signed_in? %>
@@ -42,23 +66,41 @@
   </section>
 </nav>
 </div>
-
+<header class= "fixed" id="mainheader">
+  <div class="row">
+    <div class="left">
+    <%= link_to swits_path do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+    </div>
+    <% if user_signed_in? %>
+    
+    <div class="right">
+      <% if user_signed_in? %>
+     <a> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
+      <% end %>
+      <div class="right">
+    <% @swit = Swit.new%>
+    <%=render 'swits/form'%>
+    </div>
+    </div>
+    <%end%>
+    </div>
+</header>
 
 
 <div class="row">
 
-  <div class="small-12 large-3 columns"></div>
-  <div class="small-12 large-12 columns"  id="main">
+  
+  
     <%= yield %>
     <%= javascript_include_tag "application" %>
     <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
- 
-
 
   </div>
-  <div class="small-12 large-3 columns"></div>
+
 </div>
 
     
