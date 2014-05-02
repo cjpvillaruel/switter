@@ -1,4 +1,9 @@
+<div class="small-12 large-4 columns left"  id="tags"  >
+<br>
+<i class="fi-heart" style="font-size:100px"></i>
 
+<i class="fi-comments" style="font-size:300px"></i>
+</div>
 <div class="small-12 large-4 columns right ">
 <h2>Sign in</h2>
  <p class="alert"><%= alert %></p>
@@ -19,5 +24,12 @@
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
+<% if user_signed_in? %>
+   Signed in as <%=current_user.username %>. Not you? 
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %> </div>
+  
 <% render "devise/shared/links" %>
 </div>
