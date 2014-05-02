@@ -28,10 +28,26 @@ class SweetsController < ApplicationController
   def create
   @sweet = @swit.sweets.new(sweet_params)
   @swits = Swit.all
+  @check = Sweet.where(swit_id: params[:swit_id], user_id: current_user.username).first;
+  @checksour= Sour.where(swit_id: params[:swit_id], user_id: current_user.username).first;
+  #render :text => @swits
+  if( @check != nil )
+    @check.destroy
+     respond_to do |format|
+        format.html { redirect_to swits_path, notice: 'Unsweet.' }
+          format.json { render action: 'new', status: :created, location: @sweet }
+     end
+  elsif @checksour != nil
+      @checksour.destroy
+      respond_to do |format|
+        format.html { redirect_to swits_path, notice: 'Unsour.' }
+        format.json { render action: 'new', status: :created, location: @sweet }
+     end
+  elsif @checksour == nil and @check == nil
   @sweet.user_id= current_user.username
       respond_to do |format|
         if @sweet.save
-          
+         
           format.html { redirect_to swits_path, notice: 'Sweet <3.' }
           format.json { render action: 'new', status: :created, location: @sweet }
         else
@@ -40,7 +56,7 @@ class SweetsController < ApplicationController
         end
       end
     end
-
+  end
   # PATCH/PUT /sweets/1
   # PATCH/PUT /sweets/1.json
   def update

@@ -33,39 +33,7 @@
 
   <body onload="go()" id="bodytag"> 
 
-  <div class="fixed">
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    
-    <li class="name">
-      <h1> </h1>
-    </li>
-
-    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-    <li class="has-form">
-  <div class="row collapse">
-    
-  </div>
-</li>
-      <li ><a href="#"><% if user_signed_in? %>
-    <%=current_user.username %><% end %></a></li>
-      <li class="active">   <% if user_signed_in? %>
-     <a> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
-      <% else %>
-      <a>hello</a>
-      <% end %>
-      </li>
-    </ul>
-   
-  </section>
-</nav>
-</div>
+ <div class="switlist">
 <header class= "fixed" id="mainheader">
   <div class="row">
     <div class="left">
@@ -75,19 +43,24 @@
     </div>
     <% if user_signed_in? %>
     
-    <div class="right">
-      <% if user_signed_in? %>
-     <a> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
+
+      <div class="right" style="margin-top:15px">
+         <% if user_signed_in? %>
+
+      <b style="font-size:20px; "><%= current_user.username%></b>
+
+     <a> <%= link_to "(Sign out)", destroy_user_session_path, :method => :delete %></a>
       <% end %>
-      <div class="right">
     <% @swit = Swit.new%>
     <%=render 'swits/form'%>
     </div>
-    </div>
+     
+     
+      
     <%end%>
     </div>
 </header>
-
+</div>
 
 <div class="row">
 
