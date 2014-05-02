@@ -5,7 +5,8 @@ class SoursController < ApplicationController
   # GET /sours
   # GET /sours.json
   def index
-    @sours = Sour.all
+     @sours = @swit.sours.all
+      
   end
 
   # GET /sours/1

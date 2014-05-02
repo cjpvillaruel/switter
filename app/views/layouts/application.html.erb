@@ -37,7 +37,7 @@
 <header class= "fixed" id="mainheader">
   <div class="row">
     <div class="left">
-    <%= link_to swits_path do %>
+    <%= link_to swits_path,id: "alogo" do %>
       <%= image_tag "logo.png" %>
     <% end %>
     </div>
@@ -68,8 +68,8 @@
   
     <%= yield %>
     <%= javascript_include_tag "application" %>
-    <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
+ 
 
 
   </div>

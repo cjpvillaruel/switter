@@ -1,27 +1,41 @@
-<h1>Listing sweets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Swit</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="small-12 large-4 columns left"  id="tags"  >
+<br><h4>Trending now</h4>
 
-  <tbody>
-    <% @sweets.each do |sweet| %>
-      <tr>
-        <td><%= sweet.user_id %></td>
-        <td><%= sweet.swit_id %></td>
-        
-        <td> <%= link_to 'Delete sweet', [@swit, sweet], confirm: 'Are you sure?', method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>
+<div class="small-12 large-8 columns  right"   >
 
+<div class="panel">
+<div class="right">
+<% if current_user.username ==  @swit.user_id  %>
+ <%= link_to 'delete', @swit, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+</div>
+
+<div class="right">
+  <% if current_user.username ==  @swit.user_id  %>
+ <%= link_to edit_swit_path(@swit) do %>
+  <i class="fi-pencil"></i> 
+<% end %>
+<% end %>
+</div>
+
+<b><%= @swit.user_id%></b>
+<h1><%= @swit.post%></h1>
+</div>
+
+
+<div class="panel callout">
+<h3><%=pluralize(@swit.sweets.count.to_s, "sweet")%></h3>
+<% @sweets.each do |sweet| %>
+
+<h6><a><%= sweet.user_id %></a></h6>
+  
+   
+ 
+</div>
+ <% end %>
 <br>
+
+</div>
 

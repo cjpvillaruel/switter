@@ -1,7 +1,8 @@
 
 <div class="small-12 large-4 columns right ">
 <h2>Sign in</h2>
-
+ <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div><%= f.label :username %><br />
   <%= f.text_field :username, autofocus: true %></div>

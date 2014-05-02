@@ -38,6 +38,10 @@
          position:fixed;
 }
 
+#alogo:hover{
+    background-color:transparent;
+}
+
 #posting{
     postion:absolute;
 }
@@ -79,7 +83,7 @@ header{
 
 
 .sweet { 
-    background-image: image-url('glyphicons_012_heart.png');
+    background-image: image-url('up.png');
     display:inline;
     background-repeat:no-repeat;
     width: 17px;
@@ -90,6 +94,8 @@ header{
     cursor: pointer;
     outline: 0;
 }
+
+
 .sweet:hover{ 
      width: 20px;
     height: 20px;
@@ -101,7 +107,7 @@ header{
 }
 
 .sour { 
-    background-image: image-url('glyphicons_012_heart.png');
+    background-image: image-url('down.png');
     display:inline;
     background-repeat:no-repeat;
     width: 17px;

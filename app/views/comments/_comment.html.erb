@@ -1,3 +1,6 @@
  <a> <%= comment.user_id %></a>
         <br>
-        <b><%= comment.body %></b>
+        <b><%= comment.body %></b><br>
+        <%if comment.user_id == current_user.username%>
+          
+          <%end%>
